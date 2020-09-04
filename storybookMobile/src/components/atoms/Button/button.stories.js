@@ -14,6 +14,13 @@ buttonStories.add('Comportamento padrão', () =>
         justifyContent: 'center',
         alignSelf: 'center'
     }}>
-        <Button disabled={boolean('disabled', false)} title={text('title', 'Some Title')}/>
+        <Button 
+            disabled={boolean('disabled', false)} 
+            loading={boolean('loading', false)} 
+            title={text('title', 'Some Title')}
+            xs={boolean('xs', false)} 
+            xl={boolean('xl', true)}
+            xxl={boolean('xxl', false)}
+        />
     </View>
 )
