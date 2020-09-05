@@ -4,23 +4,74 @@ import { storiesOf } from '@storybook/react-native'
 import { boolean, withKnobs, text } from '@storybook/addon-knobs';
 import Button from './index'
 
-const buttonStories = storiesOf('Botão', module);
+const buttonStories = storiesOf('Button', module);
 
 buttonStories.addDecorator(withKnobs);
 
-buttonStories.add('Comportamento padrão', () =>
+buttonStories.add('Default', () =>
     <View style={{
         flex: 1,
-        justifyContent: 'center',
-        alignSelf: 'center'
+        justifyContent: 'center'
     }}>
-        <Button 
-            disabled={boolean('disabled', false)} 
-            loading={boolean('loading', false)} 
+        <Button
+            disabled={boolean('disabled', false)}
+            loading={boolean('loading', false)}
             title={text('title', 'Some Title')}
-            xs={boolean('xs', false)} 
+            xs={boolean('xs', false)}
             xl={boolean('xl', true)}
             xxl={boolean('xxl', false)}
+            secondary={boolean('secondary', false)}
+        />
+    </View>
+)
+
+buttonStories.add('XS', () =>
+    <View style={{
+        flex: 1,
+        justifyContent: 'center'
+    }}>
+        <Button
+            disabled={boolean('disabled', false)}
+            loading={boolean('loading', false)}
+            title={text('title', 'Some Title')}
+            xs={boolean('xs', true)}
+            xl={boolean('xl', false)}
+            xxl={boolean('xxl', false)}
+            secondary={boolean('secondary', false)}
+        />
+    </View>
+)
+
+buttonStories.add('XXL', () =>
+    <View style={{
+        flex: 1,
+        justifyContent: 'center'
+    }}>
+        <Button
+            disabled={boolean('disabled', false)}
+            loading={boolean('loading', false)}
+            title={text('title', 'Some Title')}
+            xs={boolean('xs', false)}
+            xl={boolean('xl', false)}
+            xxl={boolean('xxl', true)}
+            secondary={boolean('secondary', false)}
+        />
+    </View>
+)
+
+buttonStories.add('Secondary', () =>
+    <View style={{
+        flex: 1,
+        justifyContent: 'center'
+    }}>
+        <Button
+            disabled={boolean('disabled', false)}
+            loading={boolean('loading', false)}
+            title={text('title', 'Some Title')}
+            xs={boolean('xs', false)}
+            xl={boolean('xl', true)}
+            xxl={boolean('xxl', false)}
+            secondary={boolean('secondary', true)}
         />
     </View>
 )

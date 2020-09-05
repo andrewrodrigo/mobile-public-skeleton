@@ -20,11 +20,15 @@ buttonStories.add('Primary', () =>
         justifyContent: 'center',
         alignSelf: 'center',
     }}>
-        <Text style={{ backgroundColor: primary.default}}>Default</Text>
+        <Text style={{ backgroundColor: primary.defaultHeightOpacity}}>Default Height Opacity</Text>
+        <Text style={{ backgroundColor: primary.defaultMiddleOpacity}}>Default Middle Opacity</Text>
+        <Text style={{ backgroundColor: primary.defaultLowOpacity}}>Default Low Opacity</Text>
         <Text style={{ backgroundColor: primary.ok}}>Ok</Text>
         <Text style={{ backgroundColor: primary.error}}>Error</Text>
         <Text style={{ backgroundColor: primary.disabled}}>Disabled</Text>
         <Text style={{ backgroundColor: primary.loading}}>Loading</Text>
+        <Text style={{ backgroundColor: primary.label}}>Label</Text>
+        <Text style={{ backgroundColor: primary.labelPlaceHolder}}>Label Placeholder</Text>
     </View>
 
 )
@@ -38,11 +42,15 @@ buttonStories.add('Secondary', () =>
         justifyContent: 'center',
         alignSelf: 'center',
     }}>
-        <Text style={{ backgroundColor: secondary.default}}>Default</Text>
+        <Text style={{ backgroundColor: secondary.defaultHeightOpacity}}>Default Height Opacity</Text>
+        <Text style={{ backgroundColor: secondary.defaultMiddleOpacity}}>Default Middle Opacity</Text>
+        <Text style={{ backgroundColor: secondary.defaultLowOpacity}}>Default Low Opacity</Text>
         <Text style={{ backgroundColor: secondary.ok}}>Ok</Text>
         <Text style={{ backgroundColor: secondary.error}}>Error</Text>
         <Text style={{ backgroundColor: secondary.disabled}}>Disabled</Text>
         <Text style={{ backgroundColor: secondary.loading}}>Loading</Text>
+        <Text style={{ backgroundColor: secondary.label}}>Label</Text>
+        <Text style={{ backgroundColor: secondary.labelPlaceHolder}}>Label Placeholder</Text>
     </View>
 
 )
