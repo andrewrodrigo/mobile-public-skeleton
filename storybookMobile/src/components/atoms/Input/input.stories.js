@@ -35,7 +35,7 @@ buttonStories.add('Input Cpf', () =>
     </View>
 )
 
-buttonStories.add('Input cnpj', () =>
+buttonStories.add('Input Cnpj', () =>
     <View style={{
         flex: 1,
         justifyContent: 'center'
@@ -44,7 +44,7 @@ buttonStories.add('Input cnpj', () =>
     </View>
 )
 
-buttonStories.add('Input phone', () =>
+buttonStories.add('Input Phone', () =>
     <View style={{
         flex: 1,
         justifyContent: 'center'
@@ -59,6 +59,33 @@ buttonStories.add('Custom KeyUpCallBack', () =>
         justifyContent: 'center'
     }}>
         <Input form={{ input: '' }} field='input' keyUpCallBack={valueChanged =>{ alert(`KeyUp => ${valueChanged}`)}}/>
+    </View>
+)
+
+buttonStories.add('Input XS', () =>
+    <View style={{
+        flex: 1,
+        justifyContent: 'center'
+    }}>
+        <Input form={{ input: '' }} field='input' xs={boolean('xs', true)}/>
+    </View>
+)
+
+buttonStories.add('Input XL', () =>
+    <View style={{
+        flex: 1,
+        justifyContent: 'center'
+    }}>
+        <Input form={{ input: '' }} field='input' xl={boolean('xl', true)}/>
+    </View>
+)
+
+buttonStories.add('Input XXL', () =>
+    <View style={{
+        flex: 1,
+        justifyContent: 'center'
+    }}>
+        <Input form={{ input: '' }} field='input' xxl={boolean('xxl', true)}/>
     </View>
 )
 

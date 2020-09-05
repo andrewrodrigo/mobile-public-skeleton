@@ -29,11 +29,28 @@ const Input = (props) => {
         mask,
         form,
         field,
-        disabled
+        disabled,
+        xs, 
+        xl, 
+        xxl
     } = props;
     const value = form[field];
     const [, setStateInputValue] = useState(0);
     const getKeyboardType = avaiableKeyBoardTypes.find(x => x === keyboardType) || 'default'
+
+    const width = (xs, xl, xxl) => {
+        const deviceWidth = Dimensions.get('window').width;
+        if (xs) {
+            return deviceWidth * 0.3
+        }
+        if (xl) {
+            return deviceWidth * 0.5
+        }
+        if (xxl) {
+            return deviceWidth * 1
+        }
+        return deviceWidth * 1
+    }
 
     const maskField = (value, mask) => {
         if (mask === 'cpf') {
@@ -59,8 +76,11 @@ const Input = (props) => {
 
     const inputValue = maskField(value, mask);
 
+    const style ={
+        width: width(xs, xl, xxl)
+    }
     return (
-        <Item floatingLabel>
+        <Item floatingLabel style={style}>
             <Label>{placeholder}</Label>
             <NativeInput disabled={disabled} value={inputValue} onChangeText={changeValue => onChangeText(changeValue, form, field)} keyboardType={getKeyboardType} />
         </Item>
@@ -72,7 +92,8 @@ Input.defaultProps = {
     form: {
         input: ''
     },
-    field: 'input'
+    field: 'input',
+    xxl: true
 }
 
 export default Input;

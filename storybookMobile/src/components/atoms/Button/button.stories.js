@@ -18,6 +18,23 @@ buttonStories.add('Default', () =>
             loading={boolean('loading', false)}
             title={text('title', 'Some Title')}
             xs={boolean('xs', false)}
+            xl={boolean('xl', false)}
+            xxl={boolean('xxl', false)}
+            secondary={boolean('secondary', false)}
+        />
+    </View>
+)
+
+buttonStories.add('Button XL', () =>
+    <View style={{
+        flex: 1,
+        justifyContent: 'center'
+    }}>
+        <Button
+            disabled={boolean('disabled', false)}
+            loading={boolean('loading', false)}
+            title={text('title', 'Some Title')}
+            xs={boolean('xs', false)}
             xl={boolean('xl', true)}
             xxl={boolean('xxl', false)}
             secondary={boolean('secondary', false)}
@@ -25,7 +42,7 @@ buttonStories.add('Default', () =>
     </View>
 )
 
-buttonStories.add('XS', () =>
+buttonStories.add('Button XS', () =>
     <View style={{
         flex: 1,
         justifyContent: 'center'
@@ -42,7 +59,7 @@ buttonStories.add('XS', () =>
     </View>
 )
 
-buttonStories.add('XXL', () =>
+buttonStories.add('Button XXL', () =>
     <View style={{
         flex: 1,
         justifyContent: 'center'
