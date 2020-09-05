@@ -76,6 +76,18 @@ buttonStories.add('Button XXL', () =>
     </View>
 )
 
+buttonStories.add('Button Bold', () =>
+    <View style={{
+        flex: 1,
+        justifyContent: 'center'
+    }}>
+        <Button
+            title={text('title', 'Some Title')}
+            fontWeight={text('fontWeight: normal|bold', 'bold')}
+        />
+    </View>
+)
+
 buttonStories.add('Secondary', () =>
     <View style={{
         flex: 1,

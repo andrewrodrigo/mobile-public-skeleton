@@ -1,6 +1,7 @@
 import React from 'react';
-import { Dimensions } from 'react-native'
-import Colors from '../Colors'
+import { Dimensions } from 'react-native';
+import Colors from '../Colors';
+import Label from '../Label';
 import { Button as NativeButton, Text, Spinner } from 'native-base';
 import styled from 'styled-components/native';
 const ButtonStyle = styled(NativeButton)``
@@ -8,7 +9,17 @@ const ButtonStyle = styled(NativeButton)``
 
 const Button = (props) => {
 
-    const { onPress, title, disabled, loading, xs, xl, xxl, secondary } = props;
+    const {
+        onPress,
+        title,
+        disabled,
+        loading,
+        xs,
+        xl,
+        xxl,
+        secondary,
+        fontWeight
+    } = props;
 
     const width = (xs, xl, xxl) => {
         const deviceWidth = Dimensions.get('window').width;
@@ -25,10 +36,10 @@ const Button = (props) => {
     }
 
     const backgroundColor = (secondary, disabled, loading) => {
-        if(secondary && (disabled || loading)){
+        if (secondary && (disabled || loading)) {
             return Colors.secondary.disabled;
         }
-        if(disabled || loading){
+        if (disabled || loading) {
             return Colors.primary.disabled;
         }
         if (secondary) {
@@ -47,13 +58,9 @@ const Button = (props) => {
         backgroundColor: backgroundColor(secondary, disabled, loading)
     }
 
-    const spinnerStype = {
-        color: spinnerColor()
-    }
-
     return (
         <ButtonStyle onPress={onPress} disabled={disabled || loading} style={buttonStyle}>
-            {loading || <Text>{title}</Text>}
+            {loading || <Label fontWeight={fontWeight} value={title} xs />}
             {loading && <Spinner color={spinnerColor()} />}
         </ButtonStyle>
     );
@@ -65,7 +72,10 @@ Button.defaultProps = {
     disabled: false,
     loading: false,
     xl: true,
-    
+    fontWeight: 'normal',
+    fontXs: true,
+    fontXl: false,
+    fontXxl: false
 }
 
 export default Button;
