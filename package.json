@@ -1,6 +1,6 @@
 {
   "name": "mobile-components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/recycle-din/mobile-components#readme",
   "dependencies": {
-    "native-base": "^2.13.14"
+    "native-base": "^2.13.14",
+    "react-native-svg": "^12.1.0"
   }
 }
