@@ -4,9 +4,8 @@ import Label from '../Label'
 import styled from 'styled-components'
 const View = styled.View`
     margin-top: ${props => props.marginTop};
-    margin-left: 20px;
-    margin-right: 20px;
-    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
 `;
 
 const Container = (props) => {
