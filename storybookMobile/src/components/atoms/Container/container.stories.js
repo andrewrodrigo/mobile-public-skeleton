@@ -23,3 +23,7 @@ containerStories.add('Container TopXL', () =>
 containerStories.add('Container TopXxL', () =>
     <Container topXxl/>
 )
+
+containerStories.add('Container Middle', () =>
+    <Container middle/>
+)
