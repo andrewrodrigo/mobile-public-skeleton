@@ -6,6 +6,7 @@ const View = styled.View`
     margin-top: ${props => props.marginTop};
     margin-left: 20px;
     margin-right: 20px;
+    justify-content: center;
 `;
 
 const Container = (props) => {

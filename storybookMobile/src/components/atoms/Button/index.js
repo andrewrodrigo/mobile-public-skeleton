@@ -30,7 +30,7 @@ const Button = (props) => {
             return deviceWidth * 0.5
         }
         if (xxl) {
-            return deviceWidth * 1
+            return deviceWidth * 0.9
         }
         return deviceWidth * 0.5
     }
@@ -71,7 +71,6 @@ Button.defaultProps = {
     title: 'Some Title',
     disabled: false,
     loading: false,
-    xl: true,
     fontWeight: 'normal',
     fontXs: true,
     fontXl: false,
