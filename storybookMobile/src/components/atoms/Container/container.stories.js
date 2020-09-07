@@ -25,5 +25,7 @@ containerStories.add('Container TopXxL', () =>
 )
 
 containerStories.add('Container Middle', () =>
-    <Container middle/>
+    <View>
+        <Container middle/>
+    </View>
 )

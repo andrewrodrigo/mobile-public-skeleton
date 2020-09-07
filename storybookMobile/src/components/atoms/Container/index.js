@@ -6,8 +6,6 @@ const View = styled.View`
     margin-top: ${props => props.marginTop};
     margin-left: 20px;
     margin-right: 20px;
-    flex: 1;
-    justify-content: ${props => props.justifyContent}
 `;
 
 const Container = (props) => {
@@ -21,24 +19,19 @@ const Container = (props) => {
             return '20px';
         }
         if (topXxl) {
-            return '40px'
+            return '40px';
+        }
+        if(middle){
+            return '50%';
         }
         return '0px'
     }
 
-    const justifyContent = (middle) =>{
-        if(middle){
-            return 'center'
-        }
-        return 'flex-start'
-    }
-
-    const marginTopValue = marginTop(topXs, topXl, topXxl);
-    const justifyContentValue = justifyContent(middle);
+    const marginTopValue = marginTop(topXs, topXl, topXxl, middle);
 
 
     return (
-        <View marginTop={marginTopValue} justifyContent={justifyContentValue}>{children}</View>
+        <View marginTop={marginTopValue} >{children}</View>
     );
 };
 
