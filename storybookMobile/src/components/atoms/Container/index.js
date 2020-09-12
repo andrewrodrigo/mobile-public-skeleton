@@ -4,12 +4,13 @@ import Label from '../Label'
 import styled from 'styled-components'
 const View = styled.View`
     margin-top: ${props => props.marginTop};
-    margin-left: 10%;
-    margin-right: 10%;
+    align-items: center;
+    width: ${props => props.deviceWidth};
 `;
 
 const Container = (props) => {
 
+    const deviceWidth = Dimensions.get('window').width;
     const { children, topXs, topXl, topXxl, middle } = props;
     const marginTop = (topXs, topXl, topXxl) => {
         if (topXs) {
@@ -31,7 +32,7 @@ const Container = (props) => {
 
 
     return (
-        <View marginTop={marginTopValue} >{children}</View>
+        <View marginTop={marginTopValue} deviceWidth={deviceWidth}>{children}</View>
     );
 };
 
