@@ -92,8 +92,7 @@ Input.defaultProps = {
     form: {
         input: ''
     },
-    field: 'input',
-    xxl: true
+    field: 'input'
 }
 
 export default Input;
