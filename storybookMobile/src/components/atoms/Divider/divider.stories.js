@@ -4,23 +4,23 @@ import { storiesOf } from '@storybook/react-native'
 import { boolean, withKnobs, text } from '@storybook/addon-knobs';
 import Divider from './index'
 
-const labelStories = storiesOf('Divider', module);
+const dividerStories = storiesOf('Divider', module);
 
-labelStories.addDecorator(withKnobs);
+dividerStories.addDecorator(withKnobs);
 
-labelStories.add('Default', () =>
+dividerStories.add('Default', () =>
    <View style={{ flex: 1, justifyContent: 'center'}}>
       <Divider text="Some Text"/>
    </View>
 )
 
-labelStories.add('Line Change', () =>
+dividerStories.add('Line Change', () =>
    <View style={{ flex: 1, justifyContent: 'center'}}>
       <Divider text="Some Text" withLine={boolean('withLine', false)}/>
    </View>
 )
 
-labelStories.add('Text Change', () =>
+dividerStories.add('Text Change', () =>
    <View style={{ flex: 1, justifyContent: 'center'}}>
       <Divider text={text('text', 'Some Title')} withLine={boolean('withLine', false)}/>
    </View>

@@ -65,7 +65,7 @@ const Input = (props) => {
         return value;
     }
 
-    const onChangeText = (changeValue, form, field) => {
+    const onChangeText = (changeValue) => {
         const newValue = maskField(changeValue, mask);
         form[field] = newValue
         if (keyUpCallBack) {
@@ -82,7 +82,7 @@ const Input = (props) => {
     return (
         <Item floatingLabel style={style}>
             <Label>{placeholder}</Label>
-            <NativeInput disabled={disabled} value={inputValue} onChangeText={changeValue => onChangeText(changeValue, form, field)} keyboardType={getKeyboardType} />
+            <NativeInput disabled={disabled} value={inputValue} onChangeText={changeValue => onChangeText(changeValue)} keyboardType={getKeyboardType} />
         </Item>
     );
 };
