@@ -2,7 +2,7 @@ import React from 'react';
 import { Dimensions } from 'react-native';
 import Colors from '../Colors';
 import Label from '../Label';
-import { Button as NativeButton, Text, Spinner } from 'native-base';
+import { Button as NativeButton, Text, Spinner, View } from 'native-base';
 import styled from 'styled-components/native';
 const ButtonStyle = styled(NativeButton)``
 
@@ -59,10 +59,12 @@ const Button = (props) => {
     }
 
     return (
-        <ButtonStyle onPress={onPress} disabled={disabled || loading} style={buttonStyle}>
-            {loading || <Label fontWeight={fontWeight} value={title} xs />}
-            {loading && <Spinner color={spinnerColor()} />}
-        </ButtonStyle>
+        <View>
+            <ButtonStyle onPress={onPress} disabled={disabled || loading} style={buttonStyle}>
+                {loading || <Label fontWeight={fontWeight} value={title} xs />}
+                {loading && <Spinner color={spinnerColor()} />}
+            </ButtonStyle>
+        </View>
     );
 };
 
