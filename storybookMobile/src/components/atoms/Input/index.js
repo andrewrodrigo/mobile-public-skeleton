@@ -49,7 +49,7 @@ const Input = (props) => {
         if (xxl) {
             return deviceWidth * 1
         }
-        return deviceWidth * 1
+        return deviceWidth * 0.9
     }
 
     const maskField = (value, mask) => {

@@ -30,9 +30,9 @@ const Button = (props) => {
             return deviceWidth * 0.5
         }
         if (xxl) {
-            return deviceWidth * 0.8
+            return deviceWidth * 1
         }
-        return deviceWidth * 0.5
+        return deviceWidth * 0.9
     }
 
     const backgroundColor = (secondary, disabled, loading) => {
