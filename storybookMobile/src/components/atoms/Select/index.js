@@ -34,7 +34,7 @@ const Select = (props) => {
         if (xxl) {
             return deviceWidth * 1
         }
-        return deviceWidth * 1
+        return deviceWidth * 0.9
     }
 
     const changeValue = (value) => {
@@ -47,7 +47,7 @@ const Select = (props) => {
 
     const containerStyle = {
         width: width(xs, xl, xxl),
-        height: 40
+        height: 60
     }
 
     return (
