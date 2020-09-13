@@ -8,3 +8,4 @@ export { default as Background } from './Background';
 export { default as Divider } from './Divider';
 export { default as Select } from './Select';
 export { default as Spacer } from './Spacer';
+export { default as Next } from './Next';
