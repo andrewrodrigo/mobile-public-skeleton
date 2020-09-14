@@ -42,7 +42,7 @@ const Next = (props) => {
     }
 
     return (
-        <View>
+        <View style={{ zIndex: 1}}>
             <MextStyle onPress={onPress} disabled={disabled || loading} style={buttonStyle}>
                 {loading || <Svg spriteId="arrow_foward" width="20" height="20"/>}
                 {loading && <Spinner color={spinnerColor()} />}

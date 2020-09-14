@@ -73,10 +73,10 @@ const Picture = (props) => {
     const { width, height } = Dimensions.get('window');
     const cameraStyle = {
         flex: 1,
-        height,
+        height: height * 0.9,
         width,
         position: 'absolute',
-        zIndex: 1
+        zIndex: 100
     }
 
     const snapPhoto = async () => {
