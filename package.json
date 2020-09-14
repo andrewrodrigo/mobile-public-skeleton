@@ -1,6 +1,6 @@
 {
   "name": "mobile-components",
-  "version": "1.0.15",
+  "version": "1.0.17",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,10 @@
     "native-base": "^2.13.14",
     "react-native-svg": "^12.1.0",
     "styled-components": "^5.2.0",
-    "react-native-dropdown-picker": "^3.6.8"
+    "react-native-dropdown-picker": "^3.6.8",
+    "expo-image-picker": "^8.4.0",
+    "expo-camera": "^8.3.1",
+    "expo-file-system": "^9.1.0",
+    "expo-media-library": "^8.4.0"
   }
 }
