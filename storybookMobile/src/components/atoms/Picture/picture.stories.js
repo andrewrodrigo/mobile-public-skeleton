@@ -2,8 +2,7 @@ import React from 'react'
 import { View } from 'native-base';
 import { storiesOf } from '@storybook/react-native'
 import { boolean, withKnobs, text } from '@storybook/addon-knobs';
-import Picture from './index'
-import Label from '../Label'
+import Picture from './index';
 
 const pictureStories = storiesOf('Picture', module);
 
@@ -17,6 +16,5 @@ const form = {
 pictureStories.add('Default', () =>
    <View style={{ flex: 1, justifyContent: 'center'}}>
       <Picture camera={true} form={form} field="picture"/>
-      <Label value="AAAAAA"/>
    </View>
 )

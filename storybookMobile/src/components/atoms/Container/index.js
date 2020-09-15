@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions } from 'react-native'
+import { Dimensions, ScrollView } from 'react-native'
 import Label from '../Label'
 import styled from 'styled-components'
 const View = styled.View`
