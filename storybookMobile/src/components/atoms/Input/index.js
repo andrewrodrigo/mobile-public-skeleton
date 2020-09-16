@@ -30,9 +30,10 @@ const Input = (props) => {
         form,
         field,
         disabled,
-        xs, 
-        xl, 
-        xxl
+        xs,
+        xl,
+        xxl,
+        maxLength
     } = props;
     const value = form[field];
     const [, setStateInputValue] = useState(0);
@@ -62,7 +63,7 @@ const Input = (props) => {
         if (mask === 'cnpj') {
             return value.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/g, "\$1.\$2.\$3\/\$4\-\$5");
         }
-        if(mask === 'date'){
+        if (mask === 'date') {
             return value.replace(/(\d{2})(\d{2})(\d{4})/g, "\$1/\$2/\$3");
         }
         return value;
@@ -79,13 +80,13 @@ const Input = (props) => {
 
     const inputValue = maskField(value, mask);
 
-    const style ={
+    const style = {
         width: width(xs, xl, xxl)
     }
     return (
         <Item floatingLabel style={style}>
             <Label>{placeholder}</Label>
-            <NativeInput disabled={disabled} value={inputValue} onChangeText={changeValue => onChangeText(changeValue)} keyboardType={getKeyboardType} />
+            <NativeInput maxLength={maxLength} disabled={disabled} value={inputValue} onChangeText={changeValue => onChangeText(changeValue)} keyboardType={getKeyboardType} />
         </Item>
     );
 };
@@ -95,7 +96,8 @@ Input.defaultProps = {
     form: {
         input: ''
     },
-    field: 'input'
+    field: 'input',
+    maxLength: 50
 }
 
 export default Input;
