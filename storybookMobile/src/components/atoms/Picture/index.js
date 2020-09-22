@@ -21,7 +21,7 @@ const StyledCameraButtonView = styled.View`
     flex-direction: column;
     align-self: center;
     position: absolute;
-    bottom: 30;
+    top: 60%;
 `;
 
 const StyledTouchable = styled.TouchableOpacity``;
