@@ -25,7 +25,8 @@ const Label = (props) => {
 
     const style = {
         fontWeight: avaiableFontWeight.find(x => x === fontWeight) || 'normal',
-        fontSize: fontSize(xs, xl, xxl)
+        fontSize: fontSize(xs, xl, xxl),
+        textAlign: 'justify'
     }
 
     return (
