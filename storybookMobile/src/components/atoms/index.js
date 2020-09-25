@@ -11,3 +11,4 @@ export { default as Spacer } from './Spacer';
 export { default as Next } from './Next';
 export { default as Picture } from './Picture';
 export { default as ScrollContent } from './ScrollContent';
+export { default as Messages } from './Messages';

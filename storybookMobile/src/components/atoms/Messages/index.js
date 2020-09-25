@@ -1,4 +1,3 @@
-import React from 'react';
 import { Alert } from 'react-native'
 
 const defaultMessage = (
@@ -6,7 +5,7 @@ const defaultMessage = (
         title: 'Some title!',
         msg: 'Some message',
         firstActionText: 'First',
-        firstCallBack: () => { console.warn('Second CallBack') },
+        firstCallBack: () => { console.warn('First CallBack') },
         secondActionText: 'Second',
         secondCallBack: () => { console.warn('Second CallBack') },
         cancelable: true
