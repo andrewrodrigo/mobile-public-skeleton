@@ -4,7 +4,7 @@ import Colors from '../Colors';
 import Label from '../Label';
 import Svg from '../Svg';
 import Button from '../Button';
-import { defaultMessage } from '../Messages';
+import Messages from '../Messages';
 import styled from 'styled-components/native';
 import { image } from './base64Image';
 import * as Permissions from 'expo-permissions';
@@ -112,14 +112,13 @@ const Picture = (props) => {
     const renderGalery = async () => {
         const { status } = await Permissions.askAsync(Permissions.CAMERA, Permissions.CAMERA_ROLL);
         if (status !== 'granted') {
-            const galeryMessage = {
+            return Messages({
                 title: 'Precisamos da sua permissão',
                 msg: 'Para acessarmos a Galera precisamos de sua permissão',
                 firstActionText: 'Ok!',
                 firstCallBack: () => { },
                 cancelable: true
-            }
-            defaultMessage(galeryMessage);
+            });
         } else {
             let result = await ImagePicker.launchImageLibraryAsync({
                 mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -138,7 +137,7 @@ const Picture = (props) => {
     }
 
     const popPictureOrGalery = () => {
-        const galeryMessage = {
+        return Messages({
             title: 'Adicione sua foto',
             msg: 'Deseja selecionar da galeria ou tirar um foto agora?',
             firstActionText: 'Galeria',
@@ -146,8 +145,7 @@ const Picture = (props) => {
             secondActionText: 'Tirar foto',
             secondCallBack: () => showCameraState(true),
             cancelable: true
-        }
-        defaultMessage(galeryMessage);
+        });
     }
 
     const renderBlankImage = (camera) => {
