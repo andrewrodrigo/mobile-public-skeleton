@@ -21,7 +21,7 @@ const StyledCameraButtonView = styled.View`
     flex-direction: column;
     align-self: center;
     position: absolute;
-    top: 60%;
+    top: 90%;
 `;
 
 const StyledTouchable = styled.TouchableOpacity``;
@@ -75,7 +75,6 @@ const Picture = (props) => {
         flex: 1,
         height: height * 0.9,
         width,
-        position: 'absolute',
         zIndex: 100
     }
 
