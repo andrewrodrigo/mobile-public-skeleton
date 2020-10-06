@@ -7,12 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://JeanAquino@bitbucket.org/recycle-din/mobile-components.git"
+    "type": "git"
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/recycle-din/mobile-components#readme",
   "dependencies": {
     "native-base": "^2.13.14",
     "react-native-svg": "^12.1.0",

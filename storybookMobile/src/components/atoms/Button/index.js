@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dimensions } from 'react-native';
 import Colors from '../Colors';
+import Svg from '../Svg';
 import Label from '../Label';
 import { Button as NativeButton, Text, Spinner, View } from 'native-base';
 import styled from 'styled-components/native';
@@ -18,7 +19,8 @@ const Button = (props) => {
         xl,
         xxl,
         secondary,
-        fontWeight
+        fontWeight,
+        icon
     } = props;
 
     const width = (xs, xl, xxl) => {
@@ -61,6 +63,7 @@ const Button = (props) => {
     return (
         <View>
             <ButtonStyle onPress={onPress} disabled={disabled || loading} style={buttonStyle}>
+                {icon && <Svg spriteId={icon} width="30" height="30"/>}
                 {loading || <Label fontWeight={fontWeight} value={title} xs />}
                 {loading && <Spinner color={spinnerColor()} />}
             </ButtonStyle>
