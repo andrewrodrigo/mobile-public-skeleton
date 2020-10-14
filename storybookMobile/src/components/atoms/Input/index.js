@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Dimensions } from 'react-native';
-import {
-  Input as NativeInput, Item, Label,
-} from 'native-base';
+import { Input as NativeInput, Item, Label } from 'native-base';
 import Colors from '../Colors';
-
-const availableKeyBoardTypes = [
+// import styled from 'styled-components/native';
+const avaiableKeyBoardTypes = [
   'numeric',
   'default',
   'email-address',
@@ -37,15 +35,12 @@ const Input = (props) => {
   } = props;
   const value = form[field];
   const [, setStateInputValue] = useState(0);
-  const getKeyboardType = availableKeyBoardTypes.find((x) => x === keyboardType) || 'default';
+  const getKeyboardType = avaiableKeyBoardTypes.find((x) => x === keyboardType) || 'default';
 
   const width = (xs, xl, xxl) => {
     const deviceWidth = Dimensions.get('window').width;
     if (xs) {
       return deviceWidth * 0.3;
-    }
-    if (xl) {
-      return deviceWidth * 0.5;
     }
     if (xl) {
       return deviceWidth * 0.5;
@@ -75,7 +70,7 @@ const Input = (props) => {
     return value;
   };
 
-  const onChangeText = (changeValue, form, field) => {
+  const onChangeText = (changeValue) => {
     const newValue = maskField(changeValue, mask);
     form[field] = newValue;
     if (keyUpCallBack) {
@@ -89,17 +84,10 @@ const Input = (props) => {
   const style = {
     width: width(xs, xl, xxl),
   };
-
   return (
     <Item floatingLabel style={style}>
       <Label>{placeholder}</Label>
-      <NativeInput
-        maxLength={maxLength}
-        disabled={disabled}
-        value={inputValue}
-        onChangeText={(changeValue) => onChangeText(changeValue)}
-        keyboardType={getKeyboardType}
-      />
+      <NativeInput maxLength={maxLength} disabled={disabled} value={inputValue} onChangeText={(changeValue) => onChangeText(changeValue)} keyboardType={getKeyboardType} />
     </Item>
   );
 };
