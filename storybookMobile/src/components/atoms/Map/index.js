@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import { Dimensions, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
-import { truckLogo } from './icons';
-
 import { Container } from './style';
 
 const Map = (props) => {
@@ -13,13 +11,10 @@ const Map = (props) => {
     width,
     height,
     markers,
+    markerImages,
   } = props;
 
   const [region, setRegion] = useState({});
-
-  const imageType = {
-    truck: truckLogo,
-  };
 
   const mapStyle = {
     width: width || Dimensions.get('window').width,
@@ -43,7 +38,7 @@ const Map = (props) => {
             description={marker.description}
           >
             <Image
-              source={imageType[marker.type]}
+              source={markerImages[marker.type]}
               style={{
                 width: marker.width || 50,
                 height: marker.height || 50,

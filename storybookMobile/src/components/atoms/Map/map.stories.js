@@ -4,6 +4,8 @@ import { storiesOf } from '@storybook/react-native';
 import { boolean, withKnobs, text } from '@storybook/addon-knobs';
 import Map from './index';
 
+import marketIcon from '../../../../assets/icon.png';
+
 const stories = storiesOf('Map', module);
 
 stories.addDecorator(withKnobs);
@@ -36,8 +38,11 @@ stories.add('Markers', () => (
       latitude: 37.78825,
       longitude: -122.4324,
       title: 'Marker',
-      type: 'truck',
+      type: 'icon-name',
     },
-  ]}
+  ]},
+  markerImages={{
+    'icon-name': marketIcon
+  }}
   />
 ));
