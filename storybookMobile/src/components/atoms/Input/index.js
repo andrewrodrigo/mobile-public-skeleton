@@ -87,7 +87,7 @@ const Input = (props) => {
   return (
     <Item floatingLabel style={style}>
       <Label>{placeholder}</Label>
-      <NativeInput maxLength={maxLength} disabled={disabled} value={inputValue} onChangeText={(changeValue) => onChangeText(changeValue)} keyboardType={getKeyboardType} />
+      <NativeInput maxLength={maxLength} disabled={disabled} value={inputValue} onChangeText={(changeValue) => onChangeText(changeValue, form, field)} keyboardType={getKeyboardType} />
     </Item>
   );
 };
