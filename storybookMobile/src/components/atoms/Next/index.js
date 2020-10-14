@@ -1,41 +1,20 @@
 import React from 'react';
 import { Dimensions } from 'react-native';
 import Colors from '../Colors';
-import Svg from '../Svg';
 import Label from '../Label';
+import Svg from '../Svg';
 import { Button as NativeButton, Text, Spinner, View } from 'native-base';
 import styled from 'styled-components/native';
-const ButtonStyle = styled(NativeButton)``
+const MextStyle = styled(NativeButton)``
 
-
-const Button = (props) => {
+const Next = (props) => {
 
     const {
         onPress,
-        title,
         disabled,
         loading,
-        xs,
-        xl,
-        xxl,
-        secondary,
-        fontWeight,
-        icon
+        secondary
     } = props;
-
-    const width = (xs, xl, xxl) => {
-        const deviceWidth = Dimensions.get('window').width;
-        if (xs) {
-            return deviceWidth * 0.3
-        }
-        if (xl) {
-            return deviceWidth * 0.5
-        }
-        if (xxl) {
-            return deviceWidth * 1
-        }
-        return deviceWidth * 0.9
-    }
 
     const backgroundColor = (secondary, disabled, loading) => {
         if (secondary && (disabled || loading)) {
@@ -55,31 +34,27 @@ const Button = (props) => {
     }
 
     const buttonStyle = {
-        width: width(xs, xl, xxl),
         justifyContent: 'center',
-        backgroundColor: backgroundColor(secondary, disabled, loading)
+        backgroundColor: backgroundColor(secondary, disabled, loading),
+        borderRadius: 100,
+        width: 60,
+        height: 60
     }
 
     return (
-        <View>
-            <ButtonStyle onPress={onPress} disabled={disabled || loading} style={buttonStyle}>
-                {icon && <Svg spriteId={icon} width="30" height="30"/>}
-                {loading || <Label fontWeight={fontWeight} value={title} xs />}
+        <View style={{ zIndex: 1}}>
+            <MextStyle onPress={onPress} disabled={disabled || loading} style={buttonStyle}>
+                {loading || <Svg spriteId="arrow_foward" width="20" height="20"/>}
                 {loading && <Spinner color={spinnerColor()} />}
-            </ButtonStyle>
+            </MextStyle>
         </View>
     );
 };
 
-Button.defaultProps = {
+Next.defaultProps = {
     onPress: () => alert('Some event Click'),
-    title: 'Some Title',
     disabled: false,
     loading: false,
-    fontWeight: 'normal',
-    fontXs: true,
-    fontXl: false,
-    fontXxl: false
 }
 
-export default Button;
+export default Next;

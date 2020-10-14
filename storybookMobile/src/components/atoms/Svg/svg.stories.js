@@ -16,3 +16,12 @@ labelStories.add('Triangles', () =>
         <Svg spriteId="triangles"/>
     </View>
 )
+
+labelStories.add('Car', () =>
+    <View style={{
+        flex: 1,
+        justifyContent: 'center'
+    }}>
+        <Svg spriteId="car"/>
+    </View>
+)

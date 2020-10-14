@@ -31,7 +31,7 @@ buttonStories.add('Input Cpf', () =>
         flex: 1,
         justifyContent: 'center'
     }}>
-        <Input mask={text('mask: cpf|cnpj|phone', 'cpf')} form={{ input: '11636540783' }} field='input' />
+        <Input mask={text('mask: cpf|cnpj|phone|date', 'cpf')} form={{ input: '11636540783' }} field='input' />
     </View>
 )
 
@@ -40,7 +40,16 @@ buttonStories.add('Input Cnpj', () =>
         flex: 1,
         justifyContent: 'center'
     }}>
-        <Input mask={text('mask: cpf|cnpj|phone', 'cnpj')} form={{ input: '13321906000150' }} field='input' />
+        <Input mask={text('mask: cpf|cnpj|phone|date', 'cnpj')} form={{ input: '13321906000150' }} field='input' />
+    </View>
+)
+
+buttonStories.add('Input Date', () =>
+    <View style={{
+        flex: 1,
+        justifyContent: 'center'
+    }}>
+        <Input mask={text('mask: cpf|cnpj|phone|date', 'date')} form={{ input: '19041990' }} field='input' keyboardType="numeric"/>
     </View>
 )
 
@@ -49,7 +58,7 @@ buttonStories.add('Input Phone', () =>
         flex: 1,
         justifyContent: 'center'
     }}>
-        <Input mask={text('mask: cpf|cnpj|phone', 'phone')} form={{ input: '21981670333' }} field='input' />
+        <Input mask={text('mask: cpf|cnpj|phone|date', 'phone')} form={{ input: '21981670333' }} field='input' />
     </View>
 )
 
