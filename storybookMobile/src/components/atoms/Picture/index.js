@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { Dimensions, Image, View } from 'react-native';
+import {
+  Dimensions,
+  Image,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import styled from 'styled-components/native';
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
@@ -10,73 +15,27 @@ import Label from '../Label';
 import Svg from '../Svg';
 import Button from '../Button';
 import Messages from '../Messages';
-import { image } from './base64Image';
-// TODO Externalizar o arquivo base64 depois
-
-const StyledView = styled.View``;
-
-const StyledCameraButtonView = styled.View`
-    flex: 1;
-    background-color: transparent;
-    flex-direction: column;
-    align-self: center;
-    position: absolute;
-    top: 90%;
-`;
-
-const StyledTouchable = styled.TouchableOpacity``;
-
-const StyledCameraView = styled.View`
-    margin-left: 75;
-    margin-top: -18;
-    backgroundColor: ${Colors.primary.defaultHeightOpacity};
-    width: 30;
-    height: 30;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100;
-`;
-
-const StyledImage = styled.Image`
-    justify-content: center;
-    border-color: ${Colors.primary.defaultHeightOpacity};
-    border-radius: 100;
-    border-width: 2;
-    width: 120;
-    height: 120;
-`;
-
-const StyledNoPictureView = styled.View`
-    justify-content: center;
-    border-color: ${Colors.primary.defaultHeightOpacity};
-    border-width: 2;
-    border-radius: 100;
-    width: 120;
-    height: 120;
-`;
-
-const StyledNoPictureTouchable = styled.TouchableOpacity`
-    justify-content: center;
-    border-color: ${Colors.primary.defaultHeightOpacity};
-    border-width: 2;
-    border-radius: 100;
-    width: 120;
-    height: 120;
-`;
+import {
+  StyledCameraView,
+  StyledImage,
+  StyledNoPictureTouchable,
+  StyledNoPictureView,
+  StyledCameraButtonView,
+  cameraStyle,
+} from './style';
 
 const Picture = (props) => {
   const {
-    picture, camera, form, field,
+    camera, form, field,
   } = props;
+
   let cameraInstance = null;
   const [isCameraShow, showCameraState] = useState(null);
   const [base64Image, setBase64Image] = useState(null);
-  const { width, height } = Dimensions.get('window');
-  const cameraStyle = {
-    flex: 1,
-    height: height * 0.9,
-    width,
-    zIndex: 100,
+
+  const saveImage = (image) => {
+    setBase64Image(`data:image/jpeg;base64,${image}`);
+    form[field] = base64Image;
   };
 
   const snapPhoto = async () => {
@@ -88,10 +47,9 @@ const Picture = (props) => {
         fastMode: true,
         skipProcessing: true,
         exif: true,
-        onPictureSaved: async (foto) => {
-          const { base64 } = foto;
-          form[field] = base64;
-          setBase64Image(`data:image/jpeg;base64,${base64}`);
+        onPictureSaved: async (image) => {
+          const { base64 } = image;
+          saveImage(base64);
           showCameraState(false);
         },
       };
@@ -109,15 +67,17 @@ const Picture = (props) => {
 
   const renderGalery = async () => {
     const { status } = await Permissions.askAsync(Permissions.CAMERA, Permissions.CAMERA_ROLL);
+
     if (status !== 'granted') {
       return Messages({
         title: 'Precisamos da sua permissão',
         msg: 'Para acessarmos a Galera precisamos de sua permissão',
         firstActionText: 'Ok!',
-        firstCallBack: () => { },
+        firstCallBack: () => {},
         cancelable: true,
       });
     }
+
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
@@ -125,11 +85,10 @@ const Picture = (props) => {
       quality: 1,
       base64: true,
     });
+
     if (!result.cancelled) {
       const { base64 } = result;
-      const image = `data:image/jpeg;base64,${base64}`;
-      form[field] = image;
-      setBase64Image(image);
+      saveImage(base64);
     }
   };
 
@@ -164,12 +123,12 @@ const Picture = (props) => {
   const renderImage = (picture, camera) => {
     if (camera) {
       return (
-        <StyledTouchable onPress={popPictureOrGalery}>
+        <TouchableOpacity onPress={popPictureOrGalery}>
           <StyledImage source={{ uri: picture }} />
           <StyledCameraView>
             <Svg spriteId="linked_camera" width="20" height="20" />
           </StyledCameraView>
-        </StyledTouchable>
+        </TouchableOpacity>
       );
     }
     return (
@@ -182,17 +141,18 @@ const Picture = (props) => {
       showCamera()
     );
   }
-  if (picture || base64Image) {
+
+  if (base64Image) {
     return (
-      renderImage(base64Image || picture, camera)
+      renderImage(base64Image, camera)
     );
   }
+
   return renderBlankImage(camera);
 };
 
 Picture.defaultProps = {
   camera: true,
-  picture: image,
   form: {
     picture: null,
   },

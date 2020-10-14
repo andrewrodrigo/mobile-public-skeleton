@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Dimensions } from 'react-native';
 import {
-  Input as NativeInput, Item, Label, DatePicker,
+  Input as NativeInput, Item, Label,
 } from 'native-base';
 import Colors from '../Colors';
 

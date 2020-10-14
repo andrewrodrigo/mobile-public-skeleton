@@ -1,6 +1,16 @@
+import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
 import Colors from '../Colors';
+
+const { width, height } = Dimensions.get('window');
+
+const cameraStyle = {
+  flex: 1,
+  height: height * 0.9,
+  width,
+  zIndex: 100,
+};
 
 const StyledCameraButtonView = styled.View`
     flex: 1;
@@ -55,4 +65,5 @@ export {
   StyledImage,
   StyledNoPictureTouchable,
   StyledNoPictureView,
+  cameraStyle,
 };
