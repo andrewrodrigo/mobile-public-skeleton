@@ -12,7 +12,7 @@ const Svg = (props) => {
     const sprite = sprites.svg.find(x => x.spriteId === spriteId) || "triangles";
 
     const pathMap = (form) => {
-        return <Path key={form.id} d={form.trace} fill={form.fill} fillOpacity="1" />
+        return <Path key={form.id} d={form.trace} fill={form.fill} fillOpacity="1" fillRule={form.fillRule} clipRule={form.clipRule}/>
     }
 
     return (

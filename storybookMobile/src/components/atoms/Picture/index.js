@@ -1,19 +1,68 @@
 import React, { useState } from 'react';
-import { Dimensions, TouchableOpacity } from 'react-native';
+import { Dimensions, Image, View } from 'react-native';
+import styled from 'styled-components/native';
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
+import * as MediaLibrary from 'expo-media-library';
 import { Camera } from 'expo-camera';
-
+import Colors from '../Colors';
+import Label from '../Label';
 import Svg from '../Svg';
 import Button from '../Button';
 import Messages from '../Messages';
-import {
-  StyledCameraButtonView,
-  StyledNoPictureView,
-  StyledNoPictureTouchable,
-  StyledImage,
-  StyledCameraView,
-} from './style';
+import { image } from './base64Image';
+// TODO Externalizar o arquivo base64 depois
+
+const StyledView = styled.View``;
+
+const StyledCameraButtonView = styled.View`
+    flex: 1;
+    background-color: transparent;
+    flex-direction: column;
+    align-self: center;
+    position: absolute;
+    top: 90%;
+`;
+
+const StyledTouchable = styled.TouchableOpacity``;
+
+const StyledCameraView = styled.View`
+    margin-left: 75;
+    margin-top: -18;
+    backgroundColor: ${Colors.primary.defaultHeightOpacity};
+    width: 30;
+    height: 30;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100;
+`;
+
+const StyledImage = styled.Image`
+    justify-content: center;
+    border-color: ${Colors.primary.defaultHeightOpacity};
+    border-radius: 100;
+    border-width: 2;
+    width: 120;
+    height: 120;
+`;
+
+const StyledNoPictureView = styled.View`
+    justify-content: center;
+    border-color: ${Colors.primary.defaultHeightOpacity};
+    border-width: 2;
+    border-radius: 100;
+    width: 120;
+    height: 120;
+`;
+
+const StyledNoPictureTouchable = styled.TouchableOpacity`
+    justify-content: center;
+    border-color: ${Colors.primary.defaultHeightOpacity};
+    border-width: 2;
+    border-radius: 100;
+    width: 120;
+    height: 120;
+`;
 
 const Picture = (props) => {
   const {
@@ -115,12 +164,12 @@ const Picture = (props) => {
   const renderImage = (picture, camera) => {
     if (camera) {
       return (
-        <TouchableOpacity onPress={popPictureOrGalery}>
+        <StyledTouchable onPress={popPictureOrGalery}>
           <StyledImage source={{ uri: picture }} />
           <StyledCameraView>
             <Svg spriteId="linked_camera" width="20" height="20" />
           </StyledCameraView>
-        </TouchableOpacity>
+        </StyledTouchable>
       );
     }
     return (
@@ -143,7 +192,7 @@ const Picture = (props) => {
 
 Picture.defaultProps = {
   camera: true,
-  picture: 'base64',
+  picture: image,
   form: {
     picture: null,
   },

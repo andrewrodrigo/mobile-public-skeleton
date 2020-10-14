@@ -88,6 +88,19 @@ buttonStories.add('Button Bold', () =>
     </View>
 )
 
+buttonStories.add('Button Icon', () =>
+    <View style={{
+        flex: 1,
+        justifyContent: 'center'
+    }}>
+        <Button
+            icon="car"
+            title={text('title', 'Some Title')}
+            fontWeight={text('fontWeight: normal|bold', 'bold')}
+        />
+    </View>
+)
+
 buttonStories.add('Secondary', () =>
     <View style={{
         flex: 1,
