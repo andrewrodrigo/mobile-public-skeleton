@@ -13,3 +13,4 @@ export { default as Picture } from './Picture';
 export { default as ScrollContent } from './ScrollContent';
 export { default as Messages } from './Messages';
 export { default as DatePicker } from './DatePicker';
+export { default as Map } from './Map';

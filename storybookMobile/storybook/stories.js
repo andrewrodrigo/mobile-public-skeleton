@@ -12,3 +12,4 @@ import '../src/components/atoms/Next/next.stories';
 import '../src/components/atoms/Picture/picture.stories';
 import '../src/components/atoms/ScrollContent/scrollcontent.stories';
 import '../src/components/atoms/DatePicker/datepicker.stories';
+import '../src/components/atoms/Map/map.stories';
