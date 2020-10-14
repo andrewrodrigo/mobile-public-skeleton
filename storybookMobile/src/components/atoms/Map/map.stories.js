@@ -33,16 +33,17 @@ stories.add('With height', () => (
 ));
 
 stories.add('Markers', () => (
-  <Map markers={[
-    {
-      latitude: 37.78825,
-      longitude: -122.4324,
-      title: 'Marker',
-      type: 'icon-name',
-    },
-  ]},
-  markerImages={{
-    'icon-name': marketIcon
-  }}
+  <Map
+    markers={[
+      {
+        latitude: 37.78825,
+        longitude: -122.4324,
+        title: 'Marker',
+        type: 'icon-name',
+      },
+    ]}
+    markerImages={{
+      'icon-name': marketIcon,
+    }}
   />
 ));
