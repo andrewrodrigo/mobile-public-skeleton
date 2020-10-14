@@ -26,7 +26,7 @@ import {
 
 const Picture = (props) => {
   const {
-    camera, form, field,
+    pictureFromComponent, camera, form, field,
   } = props;
 
   let cameraInstance = null;
@@ -142,9 +142,11 @@ const Picture = (props) => {
     );
   }
 
-  if (base64Image) {
+  const image = pictureFromComponent || base64Image;
+
+  if (image) {
     return (
-      renderImage(base64Image, camera)
+      renderImage(image, camera)
     );
   }
 
