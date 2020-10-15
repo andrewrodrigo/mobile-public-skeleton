@@ -6,13 +6,14 @@ import MapView, { Marker } from 'react-native-maps';
 const Map = (props) => {
   const {
     initialRegion,
+    region,
     width,
     height,
     markers,
     markerImages,
   } = props;
 
-  const [region, setRegion] = useState({});
+  const [changedRegion, setRegion] = useState({});
 
   const mapStyle = {
     width: width || Dimensions.get('window').width,
