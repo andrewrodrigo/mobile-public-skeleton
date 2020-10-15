@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import { Dimensions, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
-import { Container } from './style';
-
 const Map = (props) => {
   const {
     initialRegion,
@@ -22,34 +20,32 @@ const Map = (props) => {
   };
 
   return (
-    <Container>
-      <MapView
-        style={mapStyle}
-        initialRegion={initialRegion}
-        region={region}
-        onRegionChange={(newRegion) => {
-          setRegion(newRegion);
-        }}
-      >
-        {markers && markers.map((marker) => (
-          <Marker
-            coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
-            title={marker.title}
-            description={marker.description}
-          >
-            <Image
-              source={markerImages[marker.type]}
-              style={{
-                width: marker.width || 50,
-                height: marker.height || 50,
-              }}
-              resizeMode="contain"
-            />
-          </Marker>
-        ))}
+    <MapView
+      style={mapStyle}
+      initialRegion={initialRegion}
+      region={region}
+      onRegionChange={(newRegion) => {
+        setRegion(newRegion);
+      }}
+    >
+      {markers && markers.map((marker) => (
+        <Marker
+          coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
+          title={marker.title}
+          description={marker.description}
+        >
+          <Image
+            source={markerImages[marker.type]}
+            style={{
+              width: marker.width || 50,
+              height: marker.height || 50,
+            }}
+            resizeMode="contain"
+          />
+        </Marker>
+      ))}
 
-      </MapView>
-    </Container>
+    </MapView>
   );
 };
 
