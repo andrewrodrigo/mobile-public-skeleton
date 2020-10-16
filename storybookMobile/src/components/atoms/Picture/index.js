@@ -93,12 +93,12 @@ const Picture = (props) => {
 
   const color = (primary, secondary, white) =>{
     if(primary){
-      return { bgColor: Colors.primary.bg, borderColor: Colors.primary.defaultHeightOpacity };
-    }
+      return { bgColor: Colors.globals.bg, borderColor: Colors.primary.defaultHeightOpacity };
+  }
     if(secondary){
-      return { bgColor: Colors.primary.bg, borderColor: Colors.secondary.defaultHeightOpacity };
+      return { bgColor: Colors.globals.bg, borderColor: Colors.secondary.defaultHeightOpacity };
     }
-    return { bgColor: Colors.primary.bg, borderColor: Colors.primary.defaultHeightOpacity };
+    return { bgColor: Colors.globals.bg, borderColor: Colors.primary.defaultHeightOpacity };
   }
 
   const {bgColor, borderColor} = color(primary, secondary, white);

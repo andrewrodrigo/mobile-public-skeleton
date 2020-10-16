@@ -20,8 +20,9 @@ const Drawer = (props) => {
     const contentFilter = childrenArray.filter(x => !x.props.drawablePage)
     const content = contentFilter.length ? contentFilter : [<View/>]
 
-    const clonedDrawerPage = React.cloneElement(drawablePage, { closeDrawer, openDrawer })
-    const contentMap = content.map(x=>React.cloneElement(x, { closeDrawer, openDrawer }))
+    // TODO COLOCAR NO COMPONENT
+    const clonedDrawerPage = React.cloneElement(drawablePage, { closeDrawer, openDrawer, ...drawablePage.props })
+    const contentMap = content.map(x=>React.cloneElement(x, { closeDrawer, openDrawer, ...x.props }))
 
 
     return (

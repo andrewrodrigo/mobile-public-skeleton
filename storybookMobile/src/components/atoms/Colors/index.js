@@ -10,10 +10,10 @@ module.exports = {
         loading: '#FFFFFF',
         label: '#BEB9B9',
         labelPlaceHolder: '#BEB9B9',
-        bg: '#FFFFFF'
     },
     secondary: {
         // TODO Incluir cores low e meddium
+        // Todo Rever esquema para cores gerais (preto, branco etc.)
         defaultHeightOpacity: '#8bf96c',
         defaultMiddleOpacity: '#8bf96c',
         defaultLowOpacity: '#8bf96c',
@@ -24,6 +24,11 @@ module.exports = {
         loading: '#FFFFFF',
         label: '#BEB9B9',
         labelPlaceHolder: '#BEB9B9',
-        bg: '#FFFFFF'
+    },
+    globals: {
+        text: '#000000',
+        reverseText: '#FFFFFF',
+        bg: '#FFFFFF',
+
     }
 }
