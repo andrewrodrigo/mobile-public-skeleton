@@ -7,11 +7,11 @@ import sprites from './sprites.json';
 
 const Svg = (props) => {
   const {
-    spriteId, height, width, fill,
+    spriteId, height, width, fill
   } = props;
 
   const sprite = sprites.svg.find((x) => x.spriteId === spriteId) || 'triangles';
-
+  console.warn('FILL -->', fill);
   const pathMap = (form) => <Path key={form.id} d={form.trace} fill={fill || form.fill} fillOpacity="1" fillRule={form.fillRule} clipRule={form.clipRule} />;
 
   return (

@@ -24,17 +24,18 @@ const StyledCameraButtonView = styled.View`
 const StyledCameraView = styled.View`
     margin-left: 75;
     margin-top: -18;
-    backgroundColor: ${Colors.primary.defaultHeightOpacity};
+    border-color: ${props => props.borderColor};
     width: 30;
     height: 30;
     justify-content: center;
     align-items: center;
     border-radius: 100;
+    background-color: ${props => props.bgColor};
 `;
 
 const StyledImage = styled.Image`
     justify-content: center;
-    border-color: ${Colors.primary.defaultHeightOpacity};
+    border-color: ${props => props.borderColor};
     border-radius: 100;
     border-width: 2;
     width: 120;
@@ -43,20 +44,22 @@ const StyledImage = styled.Image`
 
 const StyledNoPictureView = styled.View`
     justify-content: center;
-    border-color: ${Colors.primary.defaultHeightOpacity};
+    border-color: ${props => props.borderColor};
     border-width: 2;
     border-radius: 100;
     width: 120;
     height: 120;
+    background-color: ${props => props.bgColor};
 `;
 
 const StyledNoPictureTouchable = styled.TouchableOpacity`
     justify-content: center;
-    border-color: ${Colors.primary.defaultHeightOpacity};
+    border-color: ${props => props.borderColor};
     border-width: 2;
     border-radius: 100;
     width: 120;
     height: 120;
+    background-color: ${props => props.bgColor};
 `;
 
 export {

@@ -22,7 +22,10 @@ const Container = (props) => {
         if(secondary){
             return Colors.secondary.defaultHeightOpacity;
         }
-        return Colors.primary.bg;
+        if(white){
+            return Colors.primary.bg;
+        }
+        return 'transparent';
     }
     const marginTop = (topXs, topXl, topXxl) => {
         if (topXs) {

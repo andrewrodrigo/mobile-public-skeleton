@@ -26,7 +26,7 @@ import {
 
 const Picture = (props) => {
   const {
-    pictureFromComponent, camera, form, field,
+    pictureFromComponent, camera, form, field, primary, secondary, white
   } = props;
 
   let cameraInstance = null;
@@ -91,6 +91,18 @@ const Picture = (props) => {
     }
   };
 
+  const color = (primary, secondary, white) =>{
+    if(primary){
+      return { bgColor: Colors.primary.bg, borderColor: Colors.primary.defaultHeightOpacity };
+    }
+    if(secondary){
+      return { bgColor: Colors.primary.bg, borderColor: Colors.secondary.defaultHeightOpacity };
+    }
+    return { bgColor: Colors.primary.bg, borderColor: Colors.primary.defaultHeightOpacity };
+  }
+
+  const {bgColor, borderColor} = color(primary, secondary, white);
+
   const popPictureOrGalery = () => Messages({
     title: 'Adicione sua foto',
     msg: 'Deseja selecionar da galeria ou tirar um foto agora?',
@@ -104,16 +116,16 @@ const Picture = (props) => {
   const renderBlankImage = (camera) => {
     if (camera) {
       return (
-        <StyledNoPictureTouchable onPress={popPictureOrGalery}>
-          <Svg width="120" height="120" spriteId="user" />
-          <StyledCameraView>
-            <Svg spriteId="linked_camera" width="20" height="20" />
+        <StyledNoPictureTouchable bgColor={bgColor} borderColor={borderColor} onPress={popPictureOrGalery}>
+          <Svg width="120" height="120" spriteId="user" fill={borderColor}/>
+          <StyledCameraView borderColor={borderColor} bgColor={borderColor}>
+            <Svg spriteId="linked_camera" width="20" height="20" fill={bgColor}/>
           </StyledCameraView>
         </StyledNoPictureTouchable>
       );
     }
     return (
-      <StyledNoPictureView>
+      <StyledNoPictureView bgColor={bgColor} borderColor={borderColor}>
         <Svg width="120" height="120" spriteId="user" />
       </StyledNoPictureView>
     );
