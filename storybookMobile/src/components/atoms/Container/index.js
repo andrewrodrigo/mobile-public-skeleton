@@ -13,7 +13,7 @@ const View = styled.View`
 const Container = (props) => {
 
     const deviceWidth = Dimensions.get('window').width;
-    const { children, topXs, topXl, topXxl, middle, primary, secondary } = props;
+    const { children, topXs, topXl, topXxl, middle, primary, secondary, white } = props;
 
     const color = (primary, secondary) =>{
         if(primary){
