@@ -13,3 +13,4 @@ import '../src/components/atoms/Picture/picture.stories';
 import '../src/components/atoms/ScrollContent/scrollcontent.stories';
 import '../src/components/atoms/DatePicker/datepicker.stories';
 import '../src/components/atoms/Map/map.stories';
+import '../src/components/atoms/Drawer/drawer.stories';
