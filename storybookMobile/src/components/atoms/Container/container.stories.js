@@ -29,3 +29,9 @@ containerStories.add('Container Middle', () =>
         <Container middle/>
     </View>
 )
+
+containerStories.add('Container Colored', () =>
+    <View>
+        <Container middle primary/>
+    </View>
+)

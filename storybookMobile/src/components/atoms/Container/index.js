@@ -1,17 +1,29 @@
 import React from 'react';
 import { Dimensions, ScrollView } from 'react-native'
-import Label from '../Label'
+import Label from '../Label';
+import Colors from '../Colors';
 import styled from 'styled-components'
 const View = styled.View`
     margin-top: ${props => props.marginTop};
     align-items: center;
     width: ${props => props.deviceWidth};
+    background-color: ${props => props.color};
 `;
 
 const Container = (props) => {
 
     const deviceWidth = Dimensions.get('window').width;
-    const { children, topXs, topXl, topXxl, middle } = props;
+    const { children, topXs, topXl, topXxl, middle, primary, secondary } = props;
+
+    const color = (primary, secondary) =>{
+        if(primary){
+            return Colors.primary.defaultHeightOpacity;
+        }
+        if(secondary){
+            return Colors.secondary.defaultHeightOpacity;
+        }
+        return Colors.primary.bg;
+    }
     const marginTop = (topXs, topXl, topXxl) => {
         if (topXs) {
             return '10px';
@@ -29,10 +41,11 @@ const Container = (props) => {
     }
 
     const marginTopValue = marginTop(topXs, topXl, topXxl, middle);
+    const colorValue = color(primary, secondary);
 
 
     return (
-        <View marginTop={marginTopValue} deviceWidth={deviceWidth}>{children}</View>
+        <View marginTop={marginTopValue} deviceWidth={deviceWidth} color={colorValue}>{children}</View>
     );
 };
 

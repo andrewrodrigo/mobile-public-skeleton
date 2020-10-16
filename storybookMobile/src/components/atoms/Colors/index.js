@@ -9,7 +9,8 @@ module.exports = {
         disabled: '#BEB9B9',
         loading: '#FFFFFF',
         label: '#BEB9B9',
-        labelPlaceHolder: '#BEB9B9'
+        labelPlaceHolder: '#BEB9B9',
+        bg: '#FFFFFF'
     },
     secondary: {
         // TODO Incluir cores low e meddium
@@ -22,6 +23,7 @@ module.exports = {
         disabled: '#BEB9B9',
         loading: '#FFFFFF',
         label: '#BEB9B9',
-        labelPlaceHolder: '#BEB9B9'
+        labelPlaceHolder: '#BEB9B9',
+        bg: '#FFFFFF'
     }
 }
