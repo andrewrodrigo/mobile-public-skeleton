@@ -8,7 +8,7 @@ import { Text as NativeText, View } from 'native-base';
 
 const Label = (props) => {
 
-    const { value, fontWeight, xs, xl, xxl, justify, margins, primary, secondary, white, marginLeft, leftSvg, rightSvg } = props;
+    const { value, fontWeight, xs, xl, xxl, justify, margins, primary, secondary, white, marginLeft, leftSvg, rightSvg, onPress } = props;
     const avaiableFontWeight = ['normal', 'bold'];
     const deviceWidth = Dimensions.get('window').width;
 
@@ -39,11 +39,13 @@ const Label = (props) => {
         return Colors.globals.text;
     }
 
+    const selectedColor = color(primary, secondary, white);
+
     const style = {
         fontWeight: avaiableFontWeight.find(x => x === fontWeight) || 'normal',
         fontSize: fontSize(xs, xl, xxl),
         textAlign: justify ? 'justify' : 'auto',
-        color: color(primary, secondary, white),
+        color: selectedColor,
         marginLeft: marginLeft ? 10 : 0
     }
 
@@ -53,9 +55,9 @@ const Label = (props) => {
 
     return (
         <View style={{ alignItems: 'center', flexDirection: 'row', marginLeft: marginLeft ? 10 : 0}}>
-            {leftSvg && <Svg spriteId={leftSvg} height="20" width="20"/>}
-            <NativeText style={style}>{value}</NativeText>
-            {rightSvg && <Svg spriteId={rightSvg} height="20" width="20"/>}
+            {leftSvg && <Svg spriteId={leftSvg} fill={selectedColor} height="20" width="20"/>}
+            <NativeText style={style} onPress={onPress}>{value}</NativeText>
+            {rightSvg && <Svg spriteId={rightSvg} fill={selectedColor} height="20" width="20"/>}
         </View>
     );
 };

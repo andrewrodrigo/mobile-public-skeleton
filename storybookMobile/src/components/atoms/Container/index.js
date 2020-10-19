@@ -24,7 +24,7 @@ const Container = (props) => {
             return Colors.secondary.defaultHeightOpacity;
         }
         if(white){
-            return Colors.primary.bg;
+            return Colors.globals.bg;
         }
         return 'transparent';
     }
