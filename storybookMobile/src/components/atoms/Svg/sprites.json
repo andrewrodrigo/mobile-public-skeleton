@@ -133,6 +133,19 @@
                     "clipRule": "evenodd"
                 }
             ]
+        },
+        {
+            "spriteId": "menu",
+            "viewBox": "0 0 24 24",
+            "forms": [
+                {
+                    "id": "1",
+                    "trace": "M3 7V5H21V7H3ZM3 11H21V9H3V11ZM21 15H3V13H21V15ZM21 19H3V17H21V19Z",
+                    "fill": "#fff",
+                    "fillRule": "evenodd",
+                    "clipRule": "evenodd"
+                }
+            ]
         }
     ]
 }
