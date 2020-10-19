@@ -5,7 +5,7 @@ import Colors from '../Colors';
 import styled from 'styled-components'
 const View = styled.View`
     margin-top: ${props => props.marginTop};
-    align-items: center;
+    align-items: ${props => props.alignItems || 'center'};
     width: ${props => props.deviceWidth};
     background-color: ${props => props.color};
 `;
@@ -13,7 +13,7 @@ const View = styled.View`
 const Container = (props) => {
 
     const deviceWidth = Dimensions.get('window').width;
-    const { children, topXs, topXl, topXxl, middle, primary, secondary, white, width } = props;
+    const { children, topXs, topXl, topXxl, middle, primary, secondary, white, width, alignItems } = props;
     const containerWidth = width || deviceWidth;
 
     const color = (primary, secondary) =>{
@@ -49,7 +49,7 @@ const Container = (props) => {
 
 
     return (
-        <View marginTop={marginTopValue} deviceWidth={containerWidth} color={colorValue}>{children}</View>
+        <View marginTop={marginTopValue} deviceWidth={containerWidth} color={colorValue} alignItems={alignItems}>{children}</View>
     );
 };
 

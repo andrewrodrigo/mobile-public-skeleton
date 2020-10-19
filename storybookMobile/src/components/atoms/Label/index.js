@@ -7,7 +7,7 @@ import { Text as NativeText } from 'native-base';
 
 const Label = (props) => {
 
-    const { value, fontWeight, xs, xl, xxl, justify, margins, primary, secondary, white } = props;
+    const { value, fontWeight, xs, xl, xxl, justify, margins, primary, secondary, white, marginLeft } = props;
     const avaiableFontWeight = ['normal', 'bold'];
     const deviceWidth = Dimensions.get('window').width;
 
@@ -42,6 +42,7 @@ const Label = (props) => {
         fontWeight: avaiableFontWeight.find(x => x === fontWeight) || 'normal',
         fontSize: fontSize(xs, xl, xxl),
         textAlign: justify ? 'justify' : 'auto',
+        marginLeft: marginLeft ? 10 : 0,
         color: color(primary, secondary, white)
     }
 
