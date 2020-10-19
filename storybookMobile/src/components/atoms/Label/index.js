@@ -1,13 +1,14 @@
 import React from 'react';
 import { Dimensions } from 'react-native'
 import Colors from '../Colors'
-import { Text as NativeText } from 'native-base';
+import Svg from '../Svg'
+import { Text as NativeText, View } from 'native-base';
 // import styled from 'styled-components/native';
 
 
 const Label = (props) => {
 
-    const { value, fontWeight, xs, xl, xxl, justify, margins, primary, secondary, white, marginLeft } = props;
+    const { value, fontWeight, xs, xl, xxl, justify, margins, primary, secondary, white, marginLeft, leftSvg, rightSvg } = props;
     const avaiableFontWeight = ['normal', 'bold'];
     const deviceWidth = Dimensions.get('window').width;
 
@@ -42,8 +43,8 @@ const Label = (props) => {
         fontWeight: avaiableFontWeight.find(x => x === fontWeight) || 'normal',
         fontSize: fontSize(xs, xl, xxl),
         textAlign: justify ? 'justify' : 'auto',
-        marginLeft: marginLeft ? 10 : 0,
-        color: color(primary, secondary, white)
+        color: color(primary, secondary, white),
+        marginLeft: marginLeft ? 10 : 0
     }
 
     if (margins) {
@@ -51,7 +52,11 @@ const Label = (props) => {
     }
 
     return (
-        <NativeText style={style}>{value}</NativeText>
+        <View style={{ alignItems: 'center', flexDirection: 'row', marginLeft: marginLeft ? 10 : 0}}>
+            {leftSvg && <Svg spriteId={leftSvg} height="20" width="20"/>}
+            <NativeText style={style}>{value}</NativeText>
+            {rightSvg && <Svg spriteId={rightSvg} height="20" width="20"/>}
+        </View>
     );
 };
 
