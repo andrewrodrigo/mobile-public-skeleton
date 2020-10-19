@@ -44,7 +44,7 @@ const Next = (props) => {
     return (
         <View style={{ zIndex: 1}}>
             <MextStyle onPress={onPress} disabled={disabled || loading} style={buttonStyle}>
-                {loading || <Svg spriteId="menu" width="20" height="20"/>}
+                {loading || <Svg spriteId="menu" width="40" height="40"/>}
             </MextStyle>
         </View>
     );

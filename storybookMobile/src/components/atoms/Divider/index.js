@@ -19,13 +19,28 @@ const ViewBox = styled.View`
 const ViewLine = styled.View`
     flex: 1
     height: ${props => props.withLine ? '2' : '0'};
-    background-color: ${Colors.primary.divider}
+    background-color: ${props => props.color};
 `;
 
 
 const Divider = (props) => {
 
-    const { text, withLine } = props;
+    const { text, withLine, primary, secondary, white } = props;
+
+    const color = (primary, secondary, white) => {
+        if (primary) {
+            return Colors.primary.defaultHeightOpacity;
+        }
+        if (secondary) {
+            return Colors.secondary.defaultHeightOpacity;
+        }
+        if (white) {
+            return Colors.globals.reverseText;
+        }
+        return Colors.globals.text;
+    }
+
+    const defaultColor = color(primary, secondary, white);
 
     const renderLine = (text) => {
         return (
@@ -37,9 +52,9 @@ const Divider = (props) => {
 
     return (
         <ViewBox>
-            <ViewLine withLine={withLine} />
+            <ViewLine withLine={withLine} color={defaultColor}/>
             {text && renderLine(text)}
-            <ViewLine withLine={withLine} />
+            <ViewLine withLine={withLine} color={defaultColor}/>
         </ViewBox>
     );
 };
