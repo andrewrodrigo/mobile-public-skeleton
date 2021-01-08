@@ -17,6 +17,22 @@
             ]
         },
         {
+            "spriteId": "green_triangles",
+            "viewBox": "0 0 373 501",
+            "forms": [
+                {
+                    "id": "1",
+                    "trace": "M0 499.699L0.833284 -9.9878e-05L271.091 0.450573L134.027 248.527L0 499.699Z",
+                    "fill": "#095647"
+                },
+                {
+                    "id": "1",
+                    "trace": "M202 0H373V174L288.029 86.0206L202 0Z",
+                    "fill": "#34c06e"
+                }
+            ]
+        },
+        {
             "spriteId": "arrow_foward",
             "viewBox": "0 0 25 24",
             "forms": [

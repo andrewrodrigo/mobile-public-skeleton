@@ -8,17 +8,18 @@ const ViewAbsolute = styled.View`
     position: absolute; 
 `;
 
-const avaibleBackgrounds = ['triangles']
+const avaibleBackgrounds = ['triangles', 'green_triangles']
 
 const heightProportion = {
-    triangles: 1.34316353887
+    triangles: 1.34316353887,
+    green_triangles: 1.34316353887
 }
 
 const Background = (props) => {
 
     const { width } = Dimensions.get('window');
     const { background, children } = props;
-    const avaibleBackground = avaibleBackgrounds.find(x=>x===background) || 'triangles'
+    const avaibleBackground = avaibleBackgrounds.find(x => x === background) || 'triangles'
     const proportion = heightProportion[avaibleBackground];
     const heigth = proportion * width;
 
