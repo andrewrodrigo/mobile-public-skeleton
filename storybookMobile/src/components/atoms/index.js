@@ -9,7 +9,6 @@ export { default as Divider } from './Divider';
 export { default as Select } from './Select';
 export { default as Spacer } from './Spacer';
 export { default as Next } from './Next';
-export { default as Picture } from './Picture';
 export { default as ScrollContent } from './ScrollContent';
 export { default as Messages } from './Messages';
 export { default as DatePicker } from './DatePicker';
